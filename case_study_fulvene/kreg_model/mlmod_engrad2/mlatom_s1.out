@@ -1,0 +1,285 @@
+
+
+  !---------------------------------------------------------------------------!
+  !                                                                           !
+  !     MLatom: a Package for Atomistic Simulations with Machine Learning     !
+  !                               Version 2.0                                 !
+  !                           http://mlatom.com/                              !
+  !                                                                           !
+  !                  Copyright (c) 2013-2021 Pavlo O. Dral                    !
+  !                           http://dr-dral.com/                             !
+  !                                                                           !
+  ! All rights reserved. This work is licensed under the                      !
+  ! Attribution-NonCommercial-NoDerivatives 4.0 International                 ! 
+  ! (http://creativecommons.org/licenses/by-nc-nd/4.0/) license.              !
+  ! See LICENSE.CC-BY-NC-ND-4.0.                                              !
+  !                                                                           !
+  ! The above copyright notice and this permission notice shall be included   !
+  ! in all copies or substantial portions of the Software.                    !
+  !                                                                           !
+  ! The software is provided "as is", without warranty of any kind, express   !
+  ! or implied, including but not limited to the warranties of                !
+  ! merchantability, fitness for a particular purpose and noninfringement. In !
+  ! no event shall the authors or copyright holders be liable for any claim,  !
+  ! damages or other liability, whether in an action of contract, tort or     !
+  ! otherwise, arising from, out of or in connection with the software or the !
+  ! use or other dealings in the software.                                    !
+  !                                                                           !
+  !                                Cite as:                                   !
+  ! Pavlo O. Dral, J. Comput. Chem. 2019, 40, 2339-2347                       !
+  ! Pavlo O. Dral, Fuchun Ge, Bao-Xin Xue, Yi-Fan Hou, Max Pinheiro Jr,       !
+  ! Jianxing Huang, Mario Barbatti, Top. Curr. Chem. 2021, 379, 27            !
+  !                                                                           !
+  ! Pavlo O. Dral, Peikun Zheng, Bao-Xin Xue, Fuchun Ge, Yi-Fan Hou,          !
+  ! Max Pinheiro Jr,                                                          !
+  ! MLatom: A Package for Atomistic Simulations with Machine Learning         !
+  ! version 2.1, Xiamen University, Xiamen, China, 2013-2021                  !
+  !                                                                           !  
+  !---------------------------------------------------------------------------!
+
+
+ ============================================================================== 
+ MLatom started on 23.12.2021 at 19:08:56
+        with the following options:
+        /home/max/programs/MLatom/bin//MLatom.py mlatom.inp
+
+        Input file content:
+ ______________________________________________________________________________ 
+createMLmodel
+XYZfile=../data/xyz_train_40k.dat
+Yfile=../data/en_s2_train_40k.dat
+molDescriptor=RE
+molDescrType=unsorted
+kernel=Gaussian
+sigma=opt lgsigmal=-10
+lambda=opt NlgLambda=15 lglambdal=-30 lglambdah=-1
+minimizeError=RMSE
+MLmodelOut=kreg_en-only_s2.unf
+ ______________________________________________________________________________ 
+ ============================================================================== 
+
+ ****************************************************************************** 
+
+ You are going to use feature(s) listed below. 
+ Please cite corresponding work(s) in your paper:
+
+ KREG model:
+   P. O. Dral, A. Owens, S. N. Yurchenko, W. Thiel,
+   J. Chem. Phys. 2017, 146, 244108
+
+ ****************************************************************************** 
+> /home/max/programs/MLatom/bin/MLatomF createMLmodel XYZfile=../data/xyz_train_40k.dat Yfile=../data/en_s2_train_40k.dat MLmodelOut=kreg_en-only_s2.unf molDescriptor=RE kernel=Gaussian molDescrType=unsorted sigma=opt lgsigmal=-10 lambda=opt NlgLambda=15 lglambdal=-30 lglambdah=-1 minimizeError=RMSE
+
+  !---------------------------------------------------------------------------! 
+  ! MLatomF: Fortran + OpenMP part of MLatom                                  ! 
+  ! Implementations by: Pavlo O. Dral and Yi-Fan Hou                          ! 
+  !---------------------------------------------------------------------------! 
+
+
+ MLatomF started on 23.12.2021 at 19:08:57
+
+ ___________________________________________________________
+
+ Calculations with the following options:
+
+    Input options
+      Nuse:                ALL
+      XYZfile:             ../data/xyz_train_40k.dat
+      Yfile:               ../data/en_s2_train_40k.dat
+
+    Output options
+      MLmodelOut:          kreg_en-only_s2.unf
+
+    Sub-set sizes and splitting options
+      Training set:        the entire dataset
+      Sub-training set:    80% of the training set
+      Validating with:     all points of the training set except for the sub-training set points
+
+    Data set operations
+      sampling:            random
+
+    ML task:
+                           create ML model
+    KRR task:              learn reference values
+
+    ML algorithm:          KRR
+      error to minimize:   RMSE
+      depth of log. opt.:  3
+      lambda:              OPT
+      NlgLambda:           15
+      lgLambdaL:           -30
+      lgLambdaH:           -1
+      Kernel:              Gaussian
+        sigma:             OPT
+        NlgSigma:          6
+        lgSigmaL:          -10
+        lgSigmaH:          9
+      prior:               0
+    Program run options:
+      Cholesky decomposition
+                           calculate and store kernel matrix
+                           elements for validation
+
+
+    Molecular descriptor:  unsorted RE
+
+ ___________________________________________________________
+
+  Equilibrium distances: 
+1     1-2      2.560114097192
+2     1-3      4.356897260906
+3     1-4      4.444023483718
+4     1-5      2.786907491445
+5     1-6      4.779221215992
+6     1-7      2.026654382176
+7     1-8      4.104855305140
+8     1-9      6.286829164318
+9     1-10      6.398742926353
+10     1-11      5.315839583538
+11     1-12      6.606915134601
+12     2-3      2.796642798968
+13     2-4      4.356892342015
+14     2-5      4.337669145452
+15     2-6      6.800565894100
+16     2-7      4.115558634991
+17     2-8      2.027307586370
+18     2-9      4.287079398235
+19     2-10      6.333972612025
+20     2-11      7.724390740477
+21     2-12      8.327854183119
+22     3-4      2.560114818328
+23     3-5      4.337671528134
+24     3-6      6.800568299389
+25     3-7      6.333978917305
+26     3-8      4.287074606023
+27     3-9      2.027309472960
+28     3-10      4.115557354132
+29     3-11      8.327860212624
+30     3-12      7.724388483897
+31     4-5      2.786904580408
+32     4-6      4.779219604391
+33     4-7      6.398745676600
+34     4-8      6.286821840293
+35     4-9      4.104858196739
+36     4-10      2.026652354272
+37     4-11      6.606915693533
+38     4-12      5.315834575826
+39     5-6      2.549151504896
+40     5-7      4.273195743391
+41     5-8      6.312241041745
+42     5-9      6.312244762439
+43     5-10      4.273188603788
+44     5-11      4.004921270870
+45     5-12      4.004917819170
+46     6-7      5.483114502306
+47     6-8      8.705108883437
+48     6-9      8.705112305188
+49     6-10      5.483107827374
+50     6-11      2.031544379642
+51     6-12      2.031543443662
+52     7-8      4.994007541809
+53     7-9      8.199541829526
+54     7-10      8.289021175453
+55     7-11      5.240273176246
+56     7-12      7.494795425713
+57     8-9      5.102206600358
+58     8-10      8.199533305233
+59     8-11      9.420525951144
+60     8-12     10.315969995378
+61     9-10      4.994008831257
+62     9-11     10.315977265094
+63     9-12      9.420523912825
+64     10-11      7.494790156658
+65     10-12      5.240262975950
+66     11-12      3.463799749781
+ Optimal value of lambda is          0.00000000018049
+ Optimal value of sigma is          2.93223351437842
+ Analysis for values
+ Statistical analysis for 32000 entries in the sub-training set
+   MAE =           0.0001013399280
+   MSE =          -0.0000002597380
+   RMSE =           0.0001943003023
+   mean(Y) =        -230.5069914066250
+   mean(Yest) =        -230.5069916663630
+   correlation coefficient =           0.9999956163422
+   linear regression of {y, y_est} by f(a,b) = a + b * y
+     R^2 =           0.9999912345379
+     a =          -0.0030701033196
+     b =           0.9999866822105
+     SE_a =           0.0038151026790
+     SE_b =           0.0000165509189
+   largest positive outlier
+     error =           0.0028059024694
+     index = 7363
+     estimated value =        -230.5379450975306
+     reference value =        -230.5407510000000
+   largest negative outlier
+     error =          -0.0020367357891
+     index = 24063
+     estimated value =        -230.5380657357891
+     reference value =        -230.5360290000000
+
+ Analysis for values
+ Statistical analysis for 8000 entries in the validation set
+   MAE =           0.0001458409625
+   MSE =          -0.0000032171177
+   RMSE =           0.0002988920775
+   mean(Y) =        -230.5063521701250
+   mean(Yest) =        -230.5063553872427
+   correlation coefficient =           0.9999897597860
+   linear regression of {y, y_est} by f(a,b) = a + b * y
+     R^2 =           0.9999795267697
+     a =           0.0227730914255
+     b =           1.0000988098954
+     SE_a =           0.0116636037819
+     SE_b =           0.0000505999214
+   largest positive outlier
+     error =           0.0053479712307
+     index = 27910
+     estimated value =        -230.2938020287693
+     reference value =        -230.2991500000000
+   largest negative outlier
+     error =          -0.0069648680252
+     index = 24307
+     estimated value =        -230.5150128680252
+     reference value =        -230.5080480000000
+
+ CREATE AND SAVE FINAL ML MODEL
+
+ Analysis for values
+ Statistical analysis for 40000 entries in the training set
+   MAE =           0.0000989935164
+   MSE =           0.0000006870826
+   RMSE =           0.0001924620827
+   mean(Y) =        -230.5068635593250
+   mean(Yest) =        -230.5068628722424
+   correlation coefficient =           0.9999957094634
+   linear regression of {y, y_est} by f(a,b) = a + b * y
+     R^2 =           0.9999914182259
+     a =          -0.0029437981324
+     b =           0.9999872260410
+     SE_a =           0.0033763666078
+     SE_b =           0.0000146475746
+   largest positive outlier
+     error =           0.0028476155556
+     index = 26190
+     estimated value =        -230.5874453844444
+     reference value =        -230.5902930000000
+   largest negative outlier
+     error =          -0.0021921851247
+     index = 24063
+     estimated value =        -230.5382211851247
+     reference value =        -230.5360290000000
+
+ FINAL ML MODEL CREATED AND SAVED
+
+
+ Wall-clock time:   29225.33 sec
+
+ MLatomF terminated on 24.12.2021 at 03:16:02
+
+ ============================================================================== 
+ Wall-clock time: 29225.42 s (487.09 min, 8.12 hours)
+
+ MLatom terminated on 24.12.2021 at 03:16:02
+ ============================================================================== 

@@ -1,0 +1,3 @@
+set xlabel "Time (fs)"
+set ylabel "Energy (hartree)"
+plot 'en.dat' using 1:2  title '' with lines,'en.dat' using 1:3  title '' with lines,'en.dat' using 1:4  title ''

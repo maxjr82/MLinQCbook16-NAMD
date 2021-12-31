@@ -1,0 +1,10 @@
+createMLmodel
+XYZfile=../../data/xyz_train_40k.dat
+Yfile=../../data/en_s0_train_40k.dat
+molDescriptor=RE
+molDescrType=unsorted
+kernel=Gaussian
+sigma=opt lgsigmal=-10
+lambda=opt NlgLambda=15 lglambdal=-30 lglambdah=-1
+minimizeError=RMSE
+MLmodelOut=mlmod_engrad1.unf

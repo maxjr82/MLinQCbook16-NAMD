@@ -1,0 +1,17 @@
+&input
+ nat = 12
+ nstat = 2
+ nstatdyn = 2
+ dt = 0.1
+ tmax = 120.0
+ prog = 11
+ thres = 100
+  killstat = 1
+  timekill = 0
+  ndamp = 0
+  lvprt = 1
+  kt = 1
+  mem = 120
+  Etot_jump = 2.0
+  Etot_drift = 2.0
+/ 
