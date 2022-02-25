@@ -47,7 +47,7 @@ To run this tutorial in a local machine, the following third-party softwares mus
 - MLatom (version 2.0)
 - Newton-X (version 2.4-b06)
 
-# ML-assisted HEOM
+# ML-assisted HEOM (the chapter folder)
 
 Prerequisite steps for ML-dynamics with the KRR model
 
