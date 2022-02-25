@@ -2,6 +2,8 @@
 
 # Excited-state dynamics with machine learning (chapter 16)
 
+# case_study_fulvene
+
 This repository contains a practical illustration of how to perform a surface hopping nonadiabatic molecular dynamics (NAMD) simulation using trained machine learning models. The fulvene molecule is used as a model system for the tutorial package provided herein. To train the machine learning models, we provide processed data files with 40000 molecular geometries and their corresponding potential energies and gradients, all extracted (randomly) from a [dataset of fewest-switches surface hopping molecular dynamics trajectories](https://figshare.com/articles/dataset/Fulvene_DC-FSSH/14446998/1) performed at the SA-2-CAS(6,6)/6-31G*.
 
 **STEP 1:** configure the environment variables
