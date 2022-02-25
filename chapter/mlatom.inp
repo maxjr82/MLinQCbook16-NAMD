@@ -1,0 +1,11 @@
+createMLmode
+MLmodelOut=spin_boson.unf
+XfileIn=X.dat 
+Yfile=Y.dat 
+kernel=Gaussian 
+sigma=opt 
+lgSigmaL=-25 
+lgSigmaH=25 
+lambda=opt 
+lgLambdaL=-30.0 
+sampling=random
