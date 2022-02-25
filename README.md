@@ -2,6 +2,8 @@
 
 # Excited-state dynamics with machine learning (chapter 16)
 
+# Case_study_fulvene
+
 This repository contains a practical illustration of how to perform a surface hopping nonadiabatic molecular dynamics (NAMD) simulation using trained machine learning models. The fulvene molecule is used as a model system for the tutorial package provided herein. To train the machine learning models, we provide processed data files with 40000 molecular geometries and their corresponding potential energies and gradients, all extracted (randomly) from a [dataset of fewest-switches surface hopping molecular dynamics trajectories](https://figshare.com/articles/dataset/Fulvene_DC-FSSH/14446998/1) performed at the SA-2-CAS(6,6)/6-31G*.
 
 **STEP 1:** configure the environment variables
@@ -44,3 +46,26 @@ To run this tutorial in a local machine, the following third-party softwares mus
 
 - MLatom (version 2.0)
 - Newton-X (version 2.4-b06)
+
+# ML-assisted HEOM
+
+Prerequisite steps for ML-dynamics with the KRR model
+
+1) The training data has already been provided, however you can run HEOM.py to generate trajectories with HEOM method. 
+   For that, you need Qutip package https://qutip.org/
+ 
+2) Download MLatom from http://mlatom.com/ and install it following the instructions on this website
+
+3) Download the training and test data given in the repository
+
+4) Each file from training and test data consists of 4 columns. They respectively are time, state-1 population,  
+     state-2 population and population difference. We are training KRR model for population difference only.  
+
+4) Prepare your input data files (the ready-made input data files (prepared_input_files.zip) are already provided)
+
+5) Prepare your input file for MLatom following mlatom.inp
+
+6) We have already provided the ready-made trained models; trained_sym_model (for symmetric case）and 
+     trained_asym_model (for asymmetric case)however you can still train ML by running "mlatom mlatom.inp > output"
+
+7) using run_ML_dynamaics.bash, you can run ML dynamics
